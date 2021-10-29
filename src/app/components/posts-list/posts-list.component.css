@@ -1,0 +1,5 @@
+.posts-container{
+    overflow-y: scroll;
+    overflow-x: clip;
+    max-height: 75vh;
+}

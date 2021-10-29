@@ -1,0 +1,63 @@
+
+<div class="container-fluid">
+
+<div class="row">
+    <div class="col-sm-3">
+        <button class="btn btn-success" [routerLink]="'../'">Back to all users list</button>
+    </div>
+</div>
+
+<div class="col-sm-6">
+    <div class="row ">
+        <h2 class="text-center"> PERSONAL DATA</h2>
+        <hr>
+    </div>
+    <div class="row" *ngFor = "let attribute of userAttributes">
+        <label class="col-sm-3 control-label table-head-text"> {{attribute}} : </label> 
+        <div class="col-sm-9"> {{user[attribute]}} </div>
+    </div>
+
+    <div class="row" >
+        <label class="col-sm-3 control-label table-head-text"> Nr of posts : </label> 
+        <div class="col-sm-9"> {{posts.length}} </div>
+    </div>
+
+
+    
+
+    <div class="row">
+        <label class="col-sm-3 control-label table-head-text"> Posts visibility : </label> 
+        <div class="col-sm-9"> 
+            <input type="radio" [value] = "true" name="showPosts" [(ngModel)] = "showPosts" (ngModelChange)="showPosts = true">
+            <label class="control-label table-head-text"> Show </label> 
+        </div>
+    </div>
+
+    <div class="row">
+        <label class="col-sm-3 control-label table-head-text"></label> 
+        <div class="col-sm-9"> 
+            <input type="radio" [value] = "false" name="showPosts" [(ngModel)] = "showPosts" (ngModelChange)="showPosts = false">
+            <label class="control-label table-head-text"> Hide </label> 
+        </div>
+    </div>
+
+
+
+
+</div>
+
+<div class="col-sm-6">
+    <div class="row">
+        <h2 class="text-center"> POSTS</h2>
+        <hr>
+    </div>
+    <app-posts-list [posts]="posts" *ngIf= "showPosts"></app-posts-list>
+    <div class="row" *ngIf="!showPosts">
+        <strong>{{posts.length}} of the user's posts are currently hidden </strong> </div>
+
+</div>
+
+<div class="col-sm-6"></div>
+
+
+</div>

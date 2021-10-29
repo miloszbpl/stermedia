@@ -1,0 +1,21 @@
+<div class="container-fluid">
+
+    <table class="table table-striped">
+
+        <thead>
+            <tr>
+                <td *ngFor="let column of columns">
+                    <span class="table-head-text">{{column}}</span>
+                </td>
+            </tr>
+        </thead>
+        <tbody class="selectable-row">
+            <tr *ngFor="let user of users" [routerLink]="user.id">
+                <td *ngFor="let column of columns">
+                    <span>{{user[column]}}</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

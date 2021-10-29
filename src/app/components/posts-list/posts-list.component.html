@@ -1,0 +1,8 @@
+<div class="container-fluid">
+    <div class="posts-container">
+
+        <div class="row" *ngFor="let post of posts">
+            <app-post-viewer [post]="post"></app-post-viewer>
+        </div>
+    </div>
+</div>
